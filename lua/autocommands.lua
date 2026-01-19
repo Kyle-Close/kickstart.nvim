@@ -10,3 +10,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'python',
+  callback = function()
+    vim.keymap.set('i', "<C-'>", "''''''<Left><Left><Left>", { buffer = true })
+    vim.keymap.set('i', '<C-">', '""""""<Left><Left><Left>', { buffer = true })
+  end,
+})
