@@ -1,6 +1,9 @@
 -- Exit insert mode with jj instead of escape
 vim.keymap.set('i', 'jj', '<Esc>')
 
+-- '0' goes to first character in line
+vim.keymap.set('n', '0', '^')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
