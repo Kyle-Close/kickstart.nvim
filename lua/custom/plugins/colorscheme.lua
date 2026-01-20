@@ -25,6 +25,7 @@ return { -- You can easily change to a different colorscheme.
 
 --]]
 
+--[[
 return {
     'sainnhe/everforest',
     lazy = false,
@@ -36,3 +37,13 @@ return {
       vim.cmd.colorscheme('everforest')
     end
   }
+--]]
+--
+return {
+  'EdenEast/nightfox.nvim',
+  config = function()
+    -- Optionally configure and load the colorscheme
+    -- directly inside the plugin declaration.
+    vim.cmd.colorscheme 'nightfox'
+  end,
+}
