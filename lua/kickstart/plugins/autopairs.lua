@@ -1,14 +1,17 @@
 -- autopairs
 -- https://github.com/windwp/nvim-autopairs
-
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
-  opts = function(_, opts)
-    local Rule = require 'nvim-autopairs.rule'
+  dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  config = function()
     local npairs = require 'nvim-autopairs'
+    local Rule = require 'nvim-autopairs.rule'
 
-    -- Add a rule to handle triple quotes
+    -- Setup autopairs first
+    npairs.setup {}
+
+    -- Then add custom rules
     npairs.add_rules {
       Rule('"""', '"""', 'python'):with_move(function(opts)
         return opts.char == '"'
@@ -17,7 +20,5 @@ return {
         return opts.char == "'"
       end),
     }
-
-    return opts
   end,
 }
